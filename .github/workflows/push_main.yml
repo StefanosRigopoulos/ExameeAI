@@ -34,8 +34,8 @@ jobs:
 
       - name: Zip artifact for deployment
         run: |
-          cd frontend
-          zip ../release.zip ./* -r
+          cd frontend/dist
+          zip ../../release.zip ./* -r
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
@@ -62,9 +62,9 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.__clientidsecretname__ }}
-          tenant-id: ${{ secrets.__tenantidsecretname__ }}
-          subscription-id: ${{ secrets.__subscriptionidsecretname__ }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_B99BBD4B4D9A4DBB87D3CA2E40C0FA8A }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_8483E9FECDE241E1898C4DDA638908C7 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_2468472A81FB4AD288A406279F7A941A }}
 
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
