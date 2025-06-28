@@ -1,1 +1,340 @@
-/* You can add global styles to this file, and also import other style files */
+@use 'styles/themes' as *;
+
+html, body {
+    font-family: var(--font-base);
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    overflow-x: hidden; // Prevent horizontal scroll
+    overflow-y: auto; // Single vertical scroll for entire app
+    transition: background-color var(--animation-slow) ease;
+    position: relative;
+    min-width: 320px; // Prevent layout from going below 320px
+
+    // Enhanced futuristic background with multiple layers
+    &::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background:
+            // Animated grid pattern
+            repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 98px,
+                var(--grid-color) 100px
+            ),
+            repeating-linear-gradient(
+                90deg,
+                transparent,
+                transparent 98px,
+                var(--grid-color) 100px
+            ),
+            // Main gradient circles
+            radial-gradient(circle at 20% 25%, var(--circle-color-1) 0%, transparent 60%),
+            radial-gradient(circle at 80% 30%, var(--circle-color-2) 0%, transparent 65%),
+            radial-gradient(circle at 40% 80%, var(--circle-color-3) 0%, transparent 60%);
+        z-index: -2;
+        pointer-events: none;
+        animation: gridPulse 8s ease-in-out infinite alternate;
+    }
+
+    .responsive-container {
+        max-width: var(--max-content-width);
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: var(--responsive-padding);
+        padding-right: var(--responsive-padding);
+        position: relative;
+        min-width: 320px; // Ensure container respects minimum width
+
+        // Floating particles effect
+        &::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-image: 
+                radial-gradient(2px 2px at 30% 40%, var(--particle-color), transparent),
+                radial-gradient(1px 1px at 70% 20%, var(--particle-color), transparent),
+                radial-gradient(1px 1px at 15% 70%, var(--particle-color), transparent),
+                radial-gradient(2px 2px at 85% 80%, var(--particle-color), transparent),
+                radial-gradient(1px 1px at 60% 90%, var(--particle-color), transparent);
+            background-size: 300px 300px, 200px 200px, 250px 250px, 400px 400px, 180px 180px;
+            background-repeat: repeat;
+            z-index: -1;
+            pointer-events: none;
+            animation: particleFloat 20s linear infinite;
+            opacity: 0.7;
+        }
+
+        @media (max-width: 1199px) {
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        @media (max-width: 480px) {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+}
+
+// ═══════════════════════════════════════════════════════════════
+// FUTURISTIC ANIMATIONS & EFFECTS
+// ═══════════════════════════════════════════════════════════════
+
+@keyframes gridPulse {
+    0% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.6;
+        transform: scale(1.02);
+    }
+    100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+}
+
+@keyframes particleFloat {
+    0% {
+        transform: translateY(0px) translateX(0px);
+    }
+    25% {
+        transform: translateY(-20px) translateX(10px);
+    }
+    50% {
+        transform: translateY(-10px) translateX(-5px);
+    }
+    75% {
+        transform: translateY(-30px) translateX(15px);
+    }
+    100% {
+        transform: translateY(0px) translateX(0px);
+    }
+}
+
+// ═══════════════════════════════════════════════════════════════
+// FUTURISTIC UTILITY CLASSES
+// ═══════════════════════════════════════════════════════════════
+
+.glass-effect {
+    background: var(--glass-tint);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: var(--glass-border) solid var(--border-glow);
+    box-shadow: 
+        0 8px 32px var(--shadow-primary),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.neon-glow {
+    box-shadow: 
+        0 0 10px var(--accent-neon),
+        0 0 20px var(--accent-neon),
+        0 0 40px var(--accent-neon);
+    transition: box-shadow var(--animation-normal) ease;
+    
+    &:hover {
+        box-shadow: 
+            0 0 15px var(--accent-bright),
+            0 0 30px var(--accent-bright),
+            0 0 60px var(--accent-bright);
+    }
+}
+
+.holographic-border {
+    position: relative;
+    
+    &::before {
+        content: '';
+        position: absolute;
+        inset: -2px;
+        padding: 2px;
+        background: linear-gradient(
+            45deg,
+            var(--first-color),
+            var(--second-color),
+            var(--third-color),
+            var(--first-color)
+        );
+        background-size: 300% 300%;
+        border-radius: inherit;
+        mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        mask-composite: exclude;
+        animation: holographicShift 3s ease-in-out infinite;
+    }
+}
+
+@keyframes holographicShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.cyber-text {
+    font-family: var(--font-mono);
+    text-shadow: 
+        0 0 5px var(--accent-neon),
+        0 0 10px var(--accent-neon),
+        0 0 15px var(--accent-neon);
+    letter-spacing: 0.1em;
+}
+
+.data-stream::after {
+    content: '█';
+    animation: blink 1s infinite;
+    color: var(--accent-neon);
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+// ══════════════════════════════════════════════════════════════
+// RESPONSIVE UTILITIES & MOBILE ENHANCEMENTS
+// ══════════════════════════════════════════════════════════════
+
+// ──────────────────────────
+// Mobile Menu Body Lock
+// ──────────────────────────
+body.mobile-menu-open {
+    overflow: hidden !important; // Prevent all scrolling when mobile menu is open
+    
+    @media (min-width: 1200px) {
+        overflow-y: auto !important; // Restore scroll on desktop screens
+        overflow-x: hidden !important; // Keep horizontal overflow hidden
+    }
+}
+
+// ──────────────────────────
+// Responsive Visibility Utilities
+// ──────────────────────────
+.hidden-mobile {
+    @media (max-width: 1199px) {
+        display: none !important;
+    }
+}
+
+.hidden-desktop {
+    @media (min-width: 1200px) {
+        display: none !important;
+    }
+}
+
+.visible-mobile-only {
+    display: none !important;
+    
+    @media (max-width: 1199px) {
+        display: block !important;
+    }
+}
+
+.visible-desktop-only {
+    display: none !important;
+    
+    @media (min-width: 1200px) {
+        display: block !important;
+    }
+}
+
+// ──────────────────────────
+// Touch-Friendly Interactive Elements
+// ──────────────────────────
+.touch-target {
+    min-height: 44px; // Apple's recommended touch target size
+    min-width: 44px;
+    
+    @media (max-width: 480px) {
+        min-height: 48px; // Larger for mobile
+        min-width: 48px;
+    }
+}
+
+// ──────────────────────────
+// Responsive Animation Adjustments
+// ──────────────────────────
+@media (max-width: 1199px) {
+    // Reduce animation intensity on mobile/tablet for better performance
+    * {
+        animation-duration: 0.8s !important;
+        transition-duration: 0.2s !important;
+    }
+    
+    // Disable complex animations on low-end devices
+    @media (prefers-reduced-motion: reduce) {
+        * {
+            animation: none !important;
+            transition: none !important;
+        }
+    }
+}
+
+// ──────────────────────────
+// Focus Management for Mobile/Tablet
+// ──────────────────────────
+@media (max-width: 1199px) {
+    button:focus,
+    input:focus,
+    textarea:focus,
+    select:focus,
+    a:focus {
+        outline: 2px solid var(--accent-neon);
+        outline-offset: 2px;
+        border-radius: 4px;
+    }
+    
+    // Larger touch targets for interactive elements
+    button,
+    .clickable,
+    .nav-link,
+    .dropdown-item {
+        min-height: 44px;
+        min-width: 44px;
+        touch-action: manipulation;
+    }
+}
+
+// ──────────────────────────
+// Responsive Container Utilities
+// ──────────────────────────
+.container-responsive {
+    width: 100%;
+    padding-left: var(--responsive-padding);
+    padding-right: var(--responsive-padding);
+    margin-left: auto;
+    margin-right: auto;
+    
+    @media (min-width: 1450px) {
+        max-width: 1320px;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+    
+    @media (min-width: 1200px) and (max-width: 1449px) {
+        max-width: 1140px;
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+    }
+    
+    @media (max-width: 1199px) {
+        max-width: 960px;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    @media (max-width: 480px) {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+}

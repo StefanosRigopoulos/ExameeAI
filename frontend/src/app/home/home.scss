@@ -1,0 +1,16 @@
+// Home page styling
+:host {
+    display: block;
+    width: 100%;
+    padding-top: 2rem; // Add some top padding to separate from navbar
+}
+
+// Container for home content
+div {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 2rem;
+    // Remove min-height to work with single scroll layout
+}

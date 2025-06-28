@@ -1,0 +1,115 @@
+html {
+  --responsive-padding: 10vw;
+  --max-content-width: 1680px;
+  --font-base: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+  
+  // Animation speeds for futuristic effects
+  --animation-fast: 0.15s;
+  --animation-normal: 0.3s;
+  --animation-slow: 0.6s;
+  --animation-ultra-slow: 1.2s;
+  
+  // Glassmorphism and neon effects
+  --glass-blur: 20px;
+  --glass-border: 1px;
+  --neon-glow-intensity: 0.6;
+  --scan-line-speed: 3s;
+  
+  // ══════════════════════════════════════════════════════════════
+  // RESPONSIVE DESIGN TOKENS
+  // ══════════════════════════════════════════════════════════════
+  
+  // Breakpoint values (updated to match navbar system)
+  --breakpoint-mobile: 480px;
+  --breakpoint-tablet: 1199px;
+  --breakpoint-desktop: 1200px;
+  --breakpoint-desktop-lg: 1450px;
+  
+  // Responsive spacing scale
+  --space-unit: 0.25rem; // 4px base unit
+  --space-xs: calc(var(--space-unit) * 1); // 4px
+  --space-sm: calc(var(--space-unit) * 2); // 8px
+  --space-md: calc(var(--space-unit) * 4); // 16px
+  --space-lg: calc(var(--space-unit) * 6); // 24px
+  --space-xl: calc(var(--space-unit) * 8); // 32px
+  --space-2xl: calc(var(--space-unit) * 12); // 48px
+  --space-3xl: calc(var(--space-unit) * 16); // 64px
+  
+  // Mobile-specific adjustments
+  --mobile-nav-height: 60px;
+  --mobile-touch-target: 44px;
+  --mobile-padding: 1rem;
+  --mobile-gap: 0.75rem;
+  
+  // Tablet-specific adjustments
+  --tablet-nav-height: 70px;
+  --tablet-padding: 1.5rem;
+  --tablet-gap: 1rem;
+  
+  // Desktop-specific adjustments
+  --desktop-nav-height: 80px;
+  --desktop-padding: 2rem;
+  --desktop-gap: 1.5rem;
+  
+  // Z-index scale for layering
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-fixed: 300;
+  --z-modal-backdrop: 400;
+  --z-modal: 500;
+}
+
+body[data-theme='light'] {
+  --bg-color: #f0f0f0;
+  --circle-color-1: rgba(88, 189, 214, 0.35);
+  --circle-color-2: rgba(106, 195, 233, 0.3);
+  --circle-color-3: rgba(72, 160, 223, 0.25);
+  --nav-bg: rgba(255, 255, 255, 0.3);
+  --text-color: #0b0f1a;
+  --first-color: #58BDD6;
+  --second-color: #6AC3E9;
+  --third-color: #48A0DF;
+  --first-color-rgb: 88, 189, 214;
+  --second-color-rgb: 106, 195, 233;
+  --third-color-rgb: 72, 160, 223;
+  
+  // Futuristic enhancements for light theme
+  --accent-neon: rgba(88, 189, 214, 0.8);
+  --accent-bright: rgba(106, 195, 233, 0.9);
+  --shadow-primary: rgba(88, 189, 214, 0.3);
+  --shadow-secondary: rgba(72, 160, 223, 0.2);
+  --grid-color: transparent;
+  --scan-line-color: transparent;
+  --particle-color: rgba(106, 195, 233, 0.6);
+  --glass-tint: rgba(255, 255, 255, 0.15);
+  --border-glow: rgba(88, 189, 214, 0.4);
+  --text-muted: rgba(11, 15, 26, 0.7);
+}
+
+body[data-theme='dark'] {
+  --bg-color: #0b0f1a;
+  --circle-color-1: rgba(49, 106, 120, 0.35);
+  --circle-color-2: rgba(58, 108, 130, 0.3);
+  --circle-color-3: rgba(45, 100, 140, 0.25);
+  --nav-bg: rgba(59, 70, 101, 0.3);
+  --text-color: #e4e4e4;
+  --first-color: #58BDD6;
+  --second-color: #6AC3E9;
+  --third-color: #48A0DF;
+  --first-color-rgb: 88, 189, 214;
+  --second-color-rgb: 106, 195, 233;
+  --third-color-rgb: 72, 160, 223;
+  
+  // Futuristic enhancements for dark theme
+  --accent-neon: rgba(88, 189, 214, 1);
+  --accent-bright: rgba(106, 195, 233, 0.95);
+  --shadow-primary: rgba(88, 189, 214, 0.4);
+  --shadow-secondary: rgba(72, 160, 223, 0.3);
+  --grid-color: transparent;
+  --scan-line-color: transparent;
+  --particle-color: rgba(106, 195, 233, 0.8);
+  --glass-tint: rgba(59, 70, 101, 0.2);
+  --border-glow: rgba(88, 189, 214, 0.6);
+  --text-muted: rgba(228, 228, 228, 0.6);
+}

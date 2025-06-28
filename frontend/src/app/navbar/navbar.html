@@ -1,0 +1,434 @@
+<nav class="navbar">
+    <!-- Left: Logo -->
+    <div class="navbar-section navbar-left">
+        <img src="./assets/banner.png" alt="ExameeAI Logo" class="brand-logo" />
+    </div>
+
+    <!-- Center: Links (hidden on mobile) -->
+    <div class="navbar-section navbar-center" [class.dropdown-active]="activeDropdown !== null">
+        <div class="nav-link dropdown" 
+             [class.active]="activeDropdown === 'features'"
+             tabindex="0"
+             (mouseenter)="onDropdownEnter('features')"
+             (mouseleave)="onDropdownLeave()"
+             (focusin)="onDropdownEnter('features')"
+             (focusout)="onDropdownLeave()">
+            Features
+        </div>
+        
+        <div class="nav-link dropdown" 
+             [class.active]="activeDropdown === 'solutions'"
+             tabindex="0"
+             (mouseenter)="onDropdownEnter('solutions')"
+             (mouseleave)="onDropdownLeave()"
+             (focusin)="onDropdownEnter('solutions')"
+             (focusout)="onDropdownLeave()">
+            Solutions
+        </div>
+        
+        <div class="nav-link dropdown" 
+             [class.active]="activeDropdown === 'blog'"
+             tabindex="0"
+             (mouseenter)="onDropdownEnter('blog')"
+             (mouseleave)="onDropdownLeave()"
+             (focusin)="onDropdownEnter('blog')"
+             (focusout)="onDropdownLeave()">
+            Blog
+        </div>
+        
+        <div class="nav-link dropdown" 
+             [class.active]="activeDropdown === 'resources'"
+             tabindex="0"
+             (mouseenter)="onDropdownEnter('resources')"
+             (mouseleave)="onDropdownLeave()"
+             (focusin)="onDropdownEnter('resources')"
+             (focusout)="onDropdownLeave()">
+            Resources
+        </div>
+        
+        <div class="nav-link dropdown" 
+             [class.active]="activeDropdown === 'about'"
+             tabindex="0"
+             (mouseenter)="onDropdownEnter('about')"
+             (mouseleave)="onDropdownLeave()"
+             (focusin)="onDropdownEnter('about')"
+             (focusout)="onDropdownLeave()">
+            About
+        </div>
+        
+        <!-- Unified Dropdown Overlay -->
+        <div class="dropdown-overlay" 
+             [class.active]="activeDropdown !== null"
+             (mouseenter)="onDropdownEnter(activeDropdown)"
+             (mouseleave)="onDropdownLeave()">
+            
+            <!-- Features Content -->
+            <div class="dropdown-content features-content" 
+                 [class.active]="activeDropdown === 'features'">
+                <div class="features-column">
+                    <a href="#" class="dropdown-item">
+                        <div class="feature-title"><i class="fa-solid fa-brain"></i> AI Question Generation</div>
+                        <div class="feature-desc">Automatically generate diverse exam questions from your content.</div>
+                    </a>
+                    <a href="#" class="dropdown-item">
+                        <div class="feature-title"><i class="fa-solid fa-shield-halved"></i> Smart Proctoring</div>
+                        <div class="feature-desc">AI-powered monitoring for secure online examinations.</div>
+                    </a>
+                    <a href="#" class="dropdown-item">
+                        <div class="feature-title"><i class="fa-solid fa-chart-line"></i> Adaptive Testing</div>
+                        <div class="feature-desc">Personalized difficulty adjustment based on student performance.</div>
+                    </a>
+                </div>
+                <div class="features-column">
+                    <a href="#" class="dropdown-item">
+                        <div class="feature-title"><i class="fa-solid fa-chart-pie"></i> Analytics Dashboard</div>
+                        <div class="feature-desc">Comprehensive insights into student and exam performance.</div>
+                    </a>
+                    <a href="#" class="dropdown-item">
+                        <div class="feature-title"><i class="fa-solid fa-magnifying-glass"></i> Plagiarism Detection</div>
+                        <div class="feature-desc">Advanced AI algorithms to ensure academic integrity.</div>
+                    </a>
+                    <a href="#" class="dropdown-item">
+                        <div class="feature-title"><i class="fa-solid fa-layer-group"></i> Multi-Format Support</div>
+                        <div class="feature-desc">Support for multiple choice, essays, coding, and multimedia questions.</div>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Solutions Content -->
+            <div class="dropdown-content solutions-content" 
+                 [class.active]="activeDropdown === 'solutions'">
+                <div class="solutions-column">
+                    <a href="#" class="dropdown-item">
+                        <div class="feature-title"><i class="fa-solid fa-graduation-cap"></i> For Universities</div>
+                        <div class="feature-desc">Comprehensive exam management for higher education institutions.</div>
+                    </a>
+                    <a href="#" class="dropdown-item">
+                        <div class="feature-title"><i class="fa-solid fa-school"></i> For Schools K-12</div>
+                        <div class="feature-desc">Age-appropriate assessment solutions for primary and secondary education.</div>
+                    </a>
+                    <a href="#" class="dropdown-item">
+                        <div class="feature-title"><i class="fa-solid fa-chalkboard-user"></i> For Training Centers</div>
+                        <div class="feature-desc">Professional certification and skills assessment platform.</div>
+                    </a>
+                </div>
+                <div class="solutions-column">
+                    <a href="#" class="dropdown-item">
+                        <div class="feature-title"><i class="fa-solid fa-seedling"></i> Starter Edition</div>
+                        <div class="feature-desc">Perfect for individual educators and small classrooms.</div>
+                    </a>
+                    <a href="#" class="dropdown-item">
+                        <div class="feature-title"><i class="fa-solid fa-rocket"></i> Professional Edition</div>
+                        <div class="feature-desc">For departments with advanced analytics and collaboration tools.</div>
+                    </a>
+                    <a href="#" class="dropdown-item">
+                        <div class="feature-title"><i class="fa-solid fa-building"></i> Enterprise Solution</div>
+                        <div class="feature-desc">Custom implementation for large institutions with dedicated support.</div>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Blog Content -->
+            <div class="dropdown-content blog-content" 
+                 [class.active]="activeDropdown === 'blog'">
+                <div class="blog-column">
+                    <a href="#" class="dropdown-item">
+                        <div class="feature-title"><i class="fa-solid fa-newspaper"></i> Latest Articles</div>
+                        <div class="feature-desc">Stay updated with the newest insights in AI and education.</div>
+                    </a>
+                    <a href="#" class="dropdown-item">
+                        <div class="feature-title"><i class="fa-solid fa-lightbulb"></i> AI in Education</div>
+                        <div class="feature-desc">Explore how AI is transforming modern assessment methods.</div>
+                    </a>
+                    <a href="#" class="dropdown-item">
+                        <div class="feature-title"><i class="fa-solid fa-chart-bar"></i> Case Studies</div>
+                        <div class="feature-desc">Real-world success stories from our university partners.</div>
+                    </a>
+                </div>
+                <div class="blog-column">
+                    <a href="#" class="dropdown-item">
+                        <div class="feature-title"><i class="fa-solid fa-graduation-cap"></i> Best Practices</div>
+                        <div class="feature-desc">Expert tips for implementing AI-powered assessments.</div>
+                    </a>
+                    <a href="#" class="dropdown-item">
+                        <div class="feature-title"><i class="fa-solid fa-flask"></i> Research Updates</div>
+                        <div class="feature-desc">Latest findings from our PhD research team.</div>
+                    </a>
+                    <a href="#" class="dropdown-item">
+                        <div class="feature-title"><i class="fa-solid fa-rocket"></i> Product Updates</div>
+                        <div class="feature-desc">New features and platform improvements.</div>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Resources Content -->
+            <div class="dropdown-content resources-content" 
+                 [class.active]="activeDropdown === 'resources'">
+                <div class="resources-column">
+                    <a href="#" class="dropdown-item">
+                        <div class="feature-title"><i class="fa-solid fa-book"></i> Documentation</div>
+                        <div class="feature-desc">Comprehensive guides for getting started with ExameeAI.</div>
+                    </a>
+                    <a href="#" class="dropdown-item">
+                        <div class="feature-title"><i class="fa-solid fa-code"></i> API Reference</div>
+                        <div class="feature-desc">Technical documentation for developers and integrators.</div>
+                    </a>
+                    <a href="#" class="dropdown-item">
+                        <div class="feature-title"><i class="fa-solid fa-question-circle"></i> Help Center</div>
+                        <div class="feature-desc">Find answers to frequently asked questions.</div>
+                    </a>
+                </div>
+                <div class="resources-column">
+                    <a href="#" class="dropdown-item">
+                        <div class="feature-title"><i class="fa-solid fa-users"></i> Community Forum</div>
+                        <div class="feature-desc">Connect with other educators and share experiences.</div>
+                    </a>
+                    <a href="#" class="dropdown-item">
+                        <div class="feature-title"><i class="fa-solid fa-phone"></i> Support</div>
+                        <div class="feature-desc">Get help from our technical support team.</div>
+                    </a>
+                    <a href="#" class="dropdown-item">
+                        <div class="feature-title"><i class="fa-solid fa-download"></i> Downloads</div>
+                        <div class="feature-desc">Access mobile apps and desktop tools.</div>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- About Content -->
+            <div class="dropdown-content about-content" 
+                 [class.active]="activeDropdown === 'about'">
+                <div class="about-column">
+                    <a href="#" class="dropdown-item">
+                        <div class="feature-title"><i class="fa-solid fa-bullseye"></i> Our Mission</div>
+                        <div class="feature-desc">Revolutionizing education through AI-powered assessment technology.</div>
+                    </a>
+                    <a href="#" class="dropdown-item">
+                        <div class="feature-title"><i class="fa-solid fa-flask"></i> Research Team</div>
+                        <div class="feature-desc">Meet our PhD researchers and AI specialists driving innovation.</div>
+                    </a>
+                    <a href="#" class="dropdown-item">
+                        <div class="feature-title"><i class="fa-solid fa-timeline"></i> Company Story</div>
+                        <div class="feature-desc">From university research to transforming global education.</div>
+                    </a>
+                </div>
+                <div class="about-column">
+                    <a href="#" class="dropdown-item">
+                        <div class="feature-title"><i class="fa-solid fa-handshake"></i> Academic Partners</div>
+                        <div class="feature-desc">Collaborating with leading universities worldwide.</div>
+                    </a>
+                    <a href="#" class="dropdown-item">
+                        <div class="feature-title"><i class="fa-solid fa-briefcase"></i> Join Our Team</div>
+                        <div class="feature-desc">Career opportunities in AI and educational technology.</div>
+                    </a>
+                    <a href="#" class="dropdown-item">
+                        <div class="feature-title"><i class="fa-solid fa-envelope"></i> Contact Us</div>
+                        <div class="feature-desc">Get in touch with our leadership and sales team.</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Right: Get Started + Mobile Menu Toggle -->
+    <div class="navbar-section navbar-right">
+        <button class="get-started">Get Started
+            <span class="wave-trail"></span>
+        </button>
+        
+        <!-- Mobile Menu Toggle Button -->
+        <button class="menu-toggle" (click)="toggleMobileMenu()" [attr.aria-expanded]="mobileMenuOpen">
+            <div class="hamburger" [class.active]="mobileMenuOpen">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </button>
+    </div>
+</nav>
+
+<!-- Mobile Navigation Dropdown -->
+<div class="mobile-dropdown" [class.open]="mobileMenuOpen" [attr.aria-hidden]="!mobileMenuOpen">
+    <!-- Features Section -->
+    <div class="mobile-nav-section features-section">
+        <div class="mobile-nav-title">Features</div>
+        <div class="mobile-dropdown-columns">
+            <div class="mobile-dropdown-column">
+                <a href="#" class="mobile-nav-item">
+                    <div class="feature-title"><i class="fa-solid fa-brain mobile-nav-icon"></i>AI Question Generation</div>
+                    <div class="feature-desc">Automatically generate diverse exam questions from your content.</div>
+                </a>
+                <a href="#" class="mobile-nav-item">
+                    <div class="feature-title"><i class="fa-solid fa-shield-halved mobile-nav-icon"></i>Smart Proctoring</div>
+                    <div class="feature-desc">AI-powered monitoring for secure online examinations.</div>
+                </a>
+                <a href="#" class="mobile-nav-item">
+                    <div class="feature-title"><i class="fa-solid fa-chart-line mobile-nav-icon"></i>Adaptive Testing</div>
+                    <div class="feature-desc">Personalized difficulty adjustment based on student performance.</div>
+                </a>
+            </div>
+            <div class="mobile-dropdown-column">
+                <a href="#" class="mobile-nav-item">
+                    <div class="feature-title"><i class="fa-solid fa-chart-pie mobile-nav-icon"></i>Analytics Dashboard</div>
+                    <div class="feature-desc">Comprehensive insights into student and exam performance.</div>
+                </a>
+                <a href="#" class="mobile-nav-item">
+                    <div class="feature-title"><i class="fa-solid fa-magnifying-glass mobile-nav-icon"></i>Plagiarism Detection</div>
+                    <div class="feature-desc">Advanced AI algorithms to ensure academic integrity.</div>
+                </a>
+                <a href="#" class="mobile-nav-item">
+                    <div class="feature-title"><i class="fa-solid fa-layer-group mobile-nav-icon"></i>Multi-Format Support</div>
+                    <div class="feature-desc">Support for multiple choice, essays, coding, and multimedia questions.</div>
+                </a>
+            </div>
+        </div>
+        <div class="mobile-divider"></div>
+    </div>
+    
+    <!-- Solutions Section -->
+    <div class="mobile-nav-section solutions-section">
+        <div class="mobile-nav-title">Solutions</div>
+        <div class="mobile-dropdown-columns">
+            <div class="mobile-dropdown-column">
+                <a href="#" class="mobile-nav-item">
+                    <div class="feature-title"><i class="fa-solid fa-graduation-cap mobile-nav-icon"></i>For Universities</div>
+                    <div class="feature-desc">Comprehensive exam management for higher education institutions.</div>
+                </a>
+                <a href="#" class="mobile-nav-item">
+                    <div class="feature-title"><i class="fa-solid fa-school mobile-nav-icon"></i>For Schools K-12</div>
+                    <div class="feature-desc">Age-appropriate assessment solutions for primary and secondary education.</div>
+                </a>
+                <a href="#" class="mobile-nav-item">
+                    <div class="feature-title"><i class="fa-solid fa-chalkboard-user mobile-nav-icon"></i>For Training Centers</div>
+                    <div class="feature-desc">Professional certification and skills assessment platform.</div>
+                </a>
+            </div>
+            <div class="mobile-dropdown-column">
+                <a href="#" class="mobile-nav-item">
+                    <div class="feature-title"><i class="fa-solid fa-seedling mobile-nav-icon"></i>Starter Edition</div>
+                    <div class="feature-desc">Perfect for individual educators and small classrooms.</div>
+                </a>
+                <a href="#" class="mobile-nav-item">
+                    <div class="feature-title"><i class="fa-solid fa-rocket mobile-nav-icon"></i>Professional Edition</div>
+                    <div class="feature-desc">For departments with advanced analytics and collaboration tools.</div>
+                </a>
+                <a href="#" class="mobile-nav-item">
+                    <div class="feature-title"><i class="fa-solid fa-building mobile-nav-icon"></i>Enterprise Solution</div>
+                    <div class="feature-desc">Custom implementation for large institutions with dedicated support.</div>
+                </a>
+            </div>
+        </div>
+        <div class="mobile-divider"></div>
+    </div>
+    
+    <!-- Blog Section -->
+    <div class="mobile-nav-section blog-section">
+        <div class="mobile-nav-title">Blog</div>
+        <div class="mobile-dropdown-columns">
+            <div class="mobile-dropdown-column">
+                <a href="#" class="mobile-nav-item">
+                    <div class="feature-title"><i class="fa-solid fa-newspaper mobile-nav-icon"></i>Latest Articles</div>
+                    <div class="feature-desc">Stay updated with the newest insights in AI and education.</div>
+                </a>
+                <a href="#" class="mobile-nav-item">
+                    <div class="feature-title"><i class="fa-solid fa-lightbulb mobile-nav-icon"></i>AI in Education</div>
+                    <div class="feature-desc">Explore how AI is transforming modern assessment methods.</div>
+                </a>
+                <a href="#" class="mobile-nav-item">
+                    <div class="feature-title"><i class="fa-solid fa-chart-bar mobile-nav-icon"></i>Case Studies</div>
+                    <div class="feature-desc">Real-world success stories from our university partners.</div>
+                </a>
+            </div>
+            <div class="mobile-dropdown-column">
+                <a href="#" class="mobile-nav-item">
+                    <div class="feature-title"><i class="fa-solid fa-graduation-cap mobile-nav-icon"></i>Best Practices</div>
+                    <div class="feature-desc">Expert tips for implementing AI-powered assessments.</div>
+                </a>
+                <a href="#" class="mobile-nav-item">
+                    <div class="feature-title"><i class="fa-solid fa-flask mobile-nav-icon"></i>Research Updates</div>
+                    <div class="feature-desc">Latest findings from our PhD research team.</div>
+                </a>
+                <a href="#" class="mobile-nav-item">
+                    <div class="feature-title"><i class="fa-solid fa-rocket mobile-nav-icon"></i>Product Updates</div>
+                    <div class="feature-desc">New features and platform improvements.</div>
+                </a>
+            </div>
+        </div>
+        <div class="mobile-divider"></div>
+    </div>
+    
+    <!-- Resources Section -->
+    <div class="mobile-nav-section resources-section">
+        <div class="mobile-nav-title">Resources</div>
+        <div class="mobile-dropdown-columns">
+            <div class="mobile-dropdown-column">
+                <a href="#" class="mobile-nav-item">
+                    <div class="feature-title"><i class="fa-solid fa-book mobile-nav-icon"></i>Documentation</div>
+                    <div class="feature-desc">Comprehensive guides for getting started with ExameeAI.</div>
+                </a>
+                <a href="#" class="mobile-nav-item">
+                    <div class="feature-title"><i class="fa-solid fa-code mobile-nav-icon"></i>API Reference</div>
+                    <div class="feature-desc">Technical documentation for developers and integrators.</div>
+                </a>
+                <a href="#" class="mobile-nav-item">
+                    <div class="feature-title"><i class="fa-solid fa-question-circle mobile-nav-icon"></i>Help Center</div>
+                    <div class="feature-desc">Find answers to frequently asked questions.</div>
+                </a>
+            </div>
+            <div class="mobile-dropdown-column">
+                <a href="#" class="mobile-nav-item">
+                    <div class="feature-title"><i class="fa-solid fa-users mobile-nav-icon"></i>Community Forum</div>
+                    <div class="feature-desc">Connect with other educators and share experiences.</div>
+                </a>
+                <a href="#" class="mobile-nav-item">
+                    <div class="feature-title"><i class="fa-solid fa-phone mobile-nav-icon"></i>Support</div>
+                    <div class="feature-desc">Get help from our technical support team.</div>
+                </a>
+                <a href="#" class="mobile-nav-item">
+                    <div class="feature-title"><i class="fa-solid fa-download mobile-nav-icon"></i>Downloads</div>
+                    <div class="feature-desc">Access mobile apps and desktop tools.</div>
+                </a>
+            </div>
+        </div>
+        <div class="mobile-divider"></div>
+    </div>
+    
+    <!-- About Section -->
+    <div class="mobile-nav-section about-section">
+        <div class="mobile-nav-title">About</div>
+        <div class="mobile-dropdown-columns">
+            <div class="mobile-dropdown-column">
+                <a href="#" class="mobile-nav-item">
+                    <div class="feature-title"><i class="fa-solid fa-bullseye mobile-nav-icon"></i>Our Mission</div>
+                    <div class="feature-desc">Revolutionizing education through AI-powered assessment technology.</div>
+                </a>
+                <a href="#" class="mobile-nav-item">
+                    <div class="feature-title"><i class="fa-solid fa-flask mobile-nav-icon"></i>Research Team</div>
+                    <div class="feature-desc">Meet our PhD researchers and AI specialists driving innovation.</div>
+                </a>
+                <a href="#" class="mobile-nav-item">
+                    <div class="feature-title"><i class="fa-solid fa-timeline mobile-nav-icon"></i>Company Story</div>
+                    <div class="feature-desc">From university research to transforming global education.</div>
+                </a>
+            </div>
+            <div class="mobile-dropdown-column">
+                <a href="#" class="mobile-nav-item">
+                    <div class="feature-title"><i class="fa-solid fa-handshake mobile-nav-icon"></i>Academic Partners</div>
+                    <div class="feature-desc">Collaborating with leading universities worldwide.</div>
+                </a>
+                <a href="#" class="mobile-nav-item">
+                    <div class="feature-title"><i class="fa-solid fa-briefcase mobile-nav-icon"></i>Join Our Team</div>
+                    <div class="feature-desc">Career opportunities in AI and educational technology.</div>
+                </a>
+                <a href="#" class="mobile-nav-item">
+                    <div class="feature-title"><i class="fa-solid fa-envelope mobile-nav-icon"></i>Contact Us</div>
+                    <div class="feature-desc">Get in touch with our leadership and sales team.</div>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <button class="mobile-get-started" (click)="closeMobileMenu()">
+        <i class="fa-solid fa-rocket"></i>Get Started for Free
+        <span class="wave-trail"></span>
+    </button>
+</div>

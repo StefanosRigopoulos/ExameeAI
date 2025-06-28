@@ -1,0 +1,47 @@
+// App-wide minimum width constraint
+:host {
+    display: block;
+    min-width: 320px;
+    height: 100%; // Use full height without creating scroll
+}
+
+// Main app layout container
+.app-layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; // Ensure content fills viewport
+    min-width: 320px;
+    position: relative;
+}
+
+// Navbar positioning and layering
+.app-navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000; // Ensure navbar is always above content
+    flex-shrink: 0; // Prevent navbar from shrinking
+}
+
+// Main content area
+.app-content {
+    flex: 1; // Take remaining space
+    position: relative;
+    z-index: 100; // Below navbar but above background elements
+    // Remove min-height to prevent double scroll
+}
+
+.hero-background {
+    position: relative;
+    min-width: 320px; // Ensure hero section respects minimum width
+    img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+    app-liquid-glass {
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
