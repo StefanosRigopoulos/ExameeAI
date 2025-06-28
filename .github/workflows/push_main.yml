@@ -30,12 +30,12 @@ jobs:
         run: |
           cd frontend
           npm install
-          ng build --configuration production --output-path=dist --base-href=/
+          ng build --configuration production
 
       - name: Zip artifact for deployment
         run: |
-          cd frontend/dist
-          zip ../../release.zip ./* -r
+          cd frontend
+          zip ../release.zip ./dist/* ./package.json ./package-lock.json ./web.config -r
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
