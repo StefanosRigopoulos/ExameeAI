@@ -1,0 +1,43 @@
+// Home page styling
+:host {
+    display: block;
+    width: 100%;
+    padding-top: 2rem; // Add some top padding to separate from navbar
+}
+
+// Container for home content
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 2rem;
+}
+
+.card {
+    flex-wrap: wrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: inherit;
+    border-radius: 28px;
+    transition: opacity 0.26s ease-out;
+    filter: drop-shadow(-8px -10px 46px #0000005f);
+    backdrop-filter: brightness(1.1) 
+        blur(2px)
+        url(#displacementFilter);
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    border-radius: 28px;
+    -webkit-box-shadow: inset 2px 2px 0px -2px rgba(255, 255, 255, 0.7), 
+                        inset 0 0 3px 1px rgba(255, 255, 255, 0.7);
+    box-shadow: inset 6px 6px 0px -6px rgba(255, 255, 255, 0.7), 
+                inset 0 0 8px 1px rgba(255, 255, 255, 0.7);
+}

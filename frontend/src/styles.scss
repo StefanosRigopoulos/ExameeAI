@@ -11,8 +11,9 @@ html, body {
     transition: background-color var(--animation-slow) ease;
     position: relative;
     min-width: 320px; // Prevent layout from going below 320px
+    min-height: 300vh; // Force minimum height to enable scrolling for testing
 
-    // Enhanced futuristic background with multiple layers
+    // Enhanced futuristic background with multiple layers and extended height for scroll testing
     &::before {
         content: '';
         position: fixed;
@@ -21,7 +22,7 @@ html, body {
         width: 100vw;
         height: 100vh;
         background:
-            // Animated grid pattern
+            // Animated grid pattern overlay
             repeating-linear-gradient(
                 0deg,
                 transparent,
@@ -34,13 +35,74 @@ html, body {
                 transparent 98px,
                 var(--grid-color) 100px
             ),
-            // Main gradient circles
+            // Main gradient circles for glass effect
             radial-gradient(circle at 20% 25%, var(--circle-color-1) 0%, transparent 60%),
             radial-gradient(circle at 80% 30%, var(--circle-color-2) 0%, transparent 65%),
-            radial-gradient(circle at 40% 80%, var(--circle-color-3) 0%, transparent 60%);
+            radial-gradient(circle at 40% 80%, var(--circle-color-3) 0%, transparent 60%),
+            // Background image for liquid glass visualization
+            linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3)),
+            url('https://images.unsplash.com/photo-1637499203020-873fe85a9fe3?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+        background-size: 
+            100px 100px,
+            100px 100px,
+            100% 100%,
+            100% 100%,
+            100% 100%,
+            100% 100%,
+            cover;
+        background-position: 
+            0 0,
+            0 0,
+            center,
+            center,
+            center,
+            center,
+            center;
+        background-repeat: 
+            repeat,
+            repeat,
+            no-repeat,
+            no-repeat,
+            no-repeat,
+            no-repeat,
+            no-repeat;
         z-index: -2;
         pointer-events: none;
         animation: gridPulse 8s ease-in-out infinite alternate;
+    }
+
+    // Additional scrolling background layer for testing liquid glass scroll effects
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 300vh; // 3x viewport height to force scrolling
+        background:
+            // Diagonal stripes for scroll visualization
+            repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 40px,
+                rgba(255, 255, 255, 0.02) 42px,
+                rgba(255, 255, 255, 0.02) 82px
+            ),
+            // Vertical gradient bands
+            linear-gradient(
+                to bottom,
+                rgba(64, 224, 208, 0.1) 0%,
+                rgba(138, 43, 226, 0.1) 25%,
+                rgba(255, 20, 147, 0.1) 50%,
+                rgba(255, 165, 0, 0.1) 75%,
+                rgba(64, 224, 208, 0.1) 100%
+            ),
+            // Large geometric shapes for depth perception
+            radial-gradient(ellipse at top left, rgba(0, 255, 255, 0.08) 0%, transparent 50%),
+            radial-gradient(ellipse at bottom right, rgba(255, 0, 255, 0.08) 0%, transparent 50%),
+            radial-gradient(ellipse at center, rgba(255, 255, 0, 0.05) 0%, transparent 60%);
+        z-index: -3;
+        pointer-events: none;
     }
 
     .responsive-container {
