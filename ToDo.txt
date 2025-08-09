@@ -1,11 +1,6 @@
 TODO
 Navbar
-1.  Make the mobile dropdown menu have dropdowns for each one i.e. Features, Solutions etc.
-2.  When we have users and it is logged in the Get-Started will transform to something
+-   We need to finish the new "nav" component with the liquid glass design.
+-   Make the mobile dropdown menu have dropdowns for each one i.e. Features, Solutions etc.
+-   When we have users and it is logged in the Get-Started will transform to something
     that will get the user to the dashboard of the application.
-
-General
-1.  Static Web App Service for the frontend
-2.  Make GitHUB make me commit changes on a branch where i commit frontend and backend.
-3.  When I merge the dev branch to the main one then it will also deploy to azure the
-    frontend and backend changes to its respective services.
